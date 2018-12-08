@@ -11,5 +11,5 @@ CURRENT_IP=`nslookup $FQDN | grep '^Address: ' | cut -f 2 -d ' '`
 TARGET_IP=`dig -4 +short myip.opendns.com @resolver1.opendns.com`
 if [ "$CURRENT_IP" != "$TARGET_IP" ]; then
 	echo "Updating Dynamic DNS for $FQDN from $CURRENT_IP to $TARGET_IP."
-	wget -q -o /dev/null "https://dynamicdns.park-your-domain.com/update?host=$RECORD&domain=$HOST&password=$SECRET"
+	wget -q -o /dev/null -O /dev/null "https://dynamicdns.park-your-domain.com/update?host=$RECORD&domain=$HOST&password=$SECRET"
 fi
