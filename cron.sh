@@ -4,6 +4,7 @@ if [ -z "$1" -o -z "$2" ]; then
 	exit 1
 fi
 FQDN="$1"
+SECRET="$2"
 RECORD=${FQDN%.*.*}
 HOST=${FQDN#$RECORD.}
 CURRENT_IP=`nslookup $FQDN | grep '^Address: ' | cut -f 2 -d ' '`
